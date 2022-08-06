@@ -10,7 +10,7 @@ class TicTacToeBoard extends Board {
     this.grid[x][y] = piece;
   }
 
-  checkSquare(x: number, y: number): TicTacToePiece {
+  get(x: number, y: number): TicTacToePiece {
     return this.grid[x][y];
   }
 }

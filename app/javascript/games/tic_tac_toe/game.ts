@@ -4,14 +4,25 @@ import TicTacToePiece from "./pawn";
 class TicTacToeGame {
 
   board: TicTacToeBoard;
+  currentTeam: string = 'x'
 
   constructor() {
     this.board = new TicTacToeBoard();
   }
 
-  placePiece(team: string, x: number, y: number): void {
-    let piece = new TicTacToePiece(team);
-    this.board.set(piece, x, y);
+  placePiece( x: number, y: number): void {
+    if (!this.board.get(x, y)) {
+      let piece = new TicTacToePiece(this.currentTeam);
+  
+      this.board.set(piece, x, y);
+      this.switchTeams();
+    } else {
+      alert("I can't let you do that");
+    }
+  }
+
+  switchTeams() {
+    this.currentTeam = (this.currentTeam === 'x') ? 'o' : 'x'
   }
 }
 
