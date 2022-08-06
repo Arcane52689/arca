@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  root to: 'portal#home'
+
+  get 'tic_tac_toe', to: 'portal#tic_tac_toe'
 end
