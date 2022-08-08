@@ -45,6 +45,28 @@ class TicTacToeBoard extends Board<TicTacToePiece> {
     ]
   }
 
+  spacesWhere(callback: (piece: TicTacToePiece|null)=>boolean): any[] {
+    let result: any[] = [];
+    let square: TicTacToePiece|null;
+    for (let x = 0; x < this.sizeX; x++) {
+      for (let y = 0; y < this.sizeY; y++) {
+        square = this.get(x,y);
+        if (callback(square)) {
+          result.push({
+            x,
+            y
+          })
+        }
+      }
+    }
+
+    return result;
+  }
+
+  openSpaces() {
+    return this.spacesWhere((piece) => !piece)
+  }
+
 
 }
 
