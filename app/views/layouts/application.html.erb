@@ -8,6 +8,7 @@
 
     <%= vite_client_tag %>
     <%= vite_javascript_tag 'application' %>
+
     <!--
       If using a TypeScript entrypoint file:
         vite_typescript_tag 'application'
@@ -21,6 +22,28 @@
   </head>
 
   <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <%= vite_image_tag 'images/brand.jpg', width: 75%>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <!-- navbar start, navbar end -->
+        <div class="navbar-start">
+          <a class="navbar-item" href="<%= root_url %>">
+            Home
+          </a>
+          <a class="navbar-item" href="<%= root_url %>">
+            Games
+          </a>
+        </div>
+        <div class="navbar-end">
+
+        </div>
+      </div>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
